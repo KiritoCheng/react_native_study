@@ -1,9 +1,9 @@
 # react-native
-## 1.Setup choco  
-&emsp;powershell run 
-```
+## 1.Install choco  
+&emsp;powershell run  
+`
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-```
+`
 ;&emsp;
 
 ## 2.Installing dependencies   
@@ -31,9 +31,10 @@ npm install -g react-native-cli
 
 
 **2. Install the Android SDK**  
-The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".  <center>
-![](https://facebook.github.io/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png)  
-</center>  
+The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".  
+<div style="display:flex;align-items:center;justify-content:center">
+<img src="https://facebook.github.io/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png">  
+</div>  
 
 The SDK Manager can also be found within the Android Studio "Preferences" dialog, under <text style="background-color:#eee">&nbsp;Appearance & Behavior Å® System Settings Å® Android SDK.&nbsp;</text>  
 

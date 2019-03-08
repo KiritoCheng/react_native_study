@@ -33,9 +33,9 @@ npm install -g react-native-cli
 **2. Install the Android SDK**  
 The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".  
 
-<center>
-![]("https://facebook.github.io/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png") 
-</center>  
+<div style="text-align: center">
+<img src="https://facebook.github.io/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png"/>  
+</div>  
 The SDK Manager can also be found within the Android Studio "Preferences" dialog, under <text style="background-color:#eee">&nbsp;Appearance & Behavior → System Settings → Android SDK.&nbsp;</text>  
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the Android 9 (Pie) entry, then make sure the following items are checked:

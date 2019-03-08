@@ -7,58 +7,60 @@
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import {ButtonCicle} from './components/units/Button'
+import React, { Component } from 'react';
+import {Platform, Text, View } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { ButtonCicle } from './components/units/Button';
 
-// const instructions = Platform.select({
-//   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-//   android:
-//     'Double tap R on your keyboard to reload,\n' +
-//     'Shake or press menu button for dev menu',
-// });
+const instructions = Platform.select({
+  ios: 'ios',
+  android:`android`
+});
 
 
-class HomeScreen extends React.Component{
+class HomeScreen extends React.Component {
+  handleNavigate() {
+    this.props.navigation.navigate('Details');
+  }
+
   render() {
     return (
-      <View style={{flex:1,alignItems:"center",justifyContent:"center"}}>
-        <Text>Home Screen</Text>
-        <ButtonCicle/>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <ButtonCicle onTap={() => this.handleNavigate()} />
       </View>
-    )
+    );
   }
 }
 
-class DetailsScreen extends React.Component{
-  render(){
-    return(
-      <View style={{flex:1,alignItems:"center",justifyContent:"center"}}>
+class DetailsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>DetailsScreen</Text>
+        <Text>{instructions}</Text>
       </View>
-    )
+    );
   }
 }
 
 const MainNavation = createStackNavigator(
   {
-    Home: { 
+    Home: {
       screen: HomeScreen,
-      navigationOptions:()=>({
-        title:"我的列表",
-        headerBackTitle: null
+      navigationOptions: () => ({
+        title: '我的标题',
+        headerBackTitle: null,
       }),
     },
-    Details:DetailsScreen
+    Details: DetailsScreen,
   },
   {
-    initialRouteName: "Home"
-  }
-)
+    initialRouteName: 'Home',
+  },
+);
 const AppContainer = createAppContainer(MainNavation);
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return <AppContainer />;
   }

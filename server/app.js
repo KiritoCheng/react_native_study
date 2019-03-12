@@ -15,13 +15,18 @@ app.use(cookieParser());
 app.use('./static', express.static(path.join(__dirname, './static/')));
 
 
+//allow custom header and CORS
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By",' 3.2.1')
+    res.header("Content-Type", "application/json;charset=utf-8");
+    next();
+});
+
 var test = require('./api/test.js')
 test(app)
-
-//设置Header
-app.use(function(req, res){
-     res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
-})
 
 var server = app.listen(port, ()=>{
     var host = server.address().address

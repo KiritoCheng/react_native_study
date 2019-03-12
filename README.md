@@ -119,5 +119,14 @@ adb tools
 use the eslint  
 &emsp;npm run lint  
 &ensp;  
+use the nginx
+&emsp;/etc/init.d/nginx start
+&emsp;/etc/init.d/nginx stop
+&emsp;/etc/init.d/nginx reload
+&emsp;nginx config key 123456
+&emsp;nginx -t -c /etc/nginx/nginx.conf
+&emsp;systemctl status nginx.service
+[Public IP](http://47.102.121.206)
+[Private IP](http://172.19.187.237)
 
 

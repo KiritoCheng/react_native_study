@@ -126,7 +126,12 @@ use the nginx
 &emsp;nginx config key 123456
 &emsp;nginx -t -c /etc/nginx/nginx.conf
 &emsp;systemctl status nginx.service
+use the pm2
+&emsp;pm2 start app.js 
+&emsp;pm2 list
+&emsp;pm2 stop all
+&emsp;pm2 stop 0(id)
+&emsp;pm2 restart all
+&emsp;pm2 delete all 
 [Public IP](http://47.102.121.206)
 [Private IP](http://172.19.187.237)
-
-

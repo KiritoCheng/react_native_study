@@ -110,7 +110,7 @@ cd android
 &emsp;
 
 ---
->**remake**  
+>**remake**
 &emsp;  
 adb tools   
 &emsp;adb devices  
@@ -135,3 +135,14 @@ use the pm2
 &emsp;pm2 delete all 
 [Public IP](http://47.102.121.206)
 [Private IP](http://172.19.187.237)
+&ensp;
+use the mysql  
+&emsp;mysqladmin -u root -p password(123456)
+&emsp;vim /etc/mysql/mysql.conf.d/mysqld.cnf
+&emsp;/etc/init.d/mysql restart 
+&emsp;service mysql restart
+&ensp;
+linxu commond  
+&emsp;netstat -ntpl |grep 3306
+&emsp;shutdown -r now
+&ensp;

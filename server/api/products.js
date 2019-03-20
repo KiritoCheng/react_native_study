@@ -32,12 +32,12 @@ var schema = buildSchema(`
 
     type productsTypes{
         ID: Int
-        name:String
-        price:String
-        cost:String
-        description:String
-        img:String
-        update_time:String
+        Name:String
+        Price:String
+        Cost:String
+        Description:String
+        Img:String
+        Update_time:String
     },
     type productsRes{
         res:Int,
@@ -52,7 +52,7 @@ var schema = buildSchema(`
 var root = {
     products:async ()=>{
         // ID | name   | price  | cost  | description  | img  | update_time 
-        return await query(`select ID,name,price,cost,description,img,update_time from product_list_tbl`)
+        return await query(`select ID, Name, Price, Cost, Description, Img, Update_time from product_list_tbl`)
             .then((rtn)=>{
                 return {
                     res:0,

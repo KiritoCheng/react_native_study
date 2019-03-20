@@ -12,4 +12,4 @@ let query = function(sql){
     })
 }
 
- module.exports = query
+ module.exports = query;

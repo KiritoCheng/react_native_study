@@ -2,32 +2,6 @@ var graphqlHTTP = require('express-graphql');
 var {buildSchema} = require('graphql');
 let query = require('../sql/query.js');
 
-// const productsTypes=`{
-//     ID: Int
-//     name:String
-//     price:String
-//     cost:String
-//     description:String
-//     img:String
-//     update_time:String
-// }`
-
-// const resSchema = `interface resSchema{
-//     res:Int
-//     err:String
-// }`
-// const productsTypes = ``
-
-// `
-// type productsTypes{
-//             ID: Int
-//             name:String
-//             price:String
-//             cost:String
-//             description:String
-//             img:String
-//             update_time:String
-//     }
 var schema = buildSchema(`
 
     type productsTypes{
@@ -51,7 +25,6 @@ var schema = buildSchema(`
 
 var root = {
     products:async ()=>{
-        // ID | name   | price  | cost  | description  | img  | update_time 
         return await query(`select ID, Name, Price, Cost, Description, Img, Update_time from product_list_tbl`)
             .then((rtn)=>{
                 return {

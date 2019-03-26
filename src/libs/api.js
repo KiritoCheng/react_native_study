@@ -1,8 +1,8 @@
 let fetch  = require("node-fetch");
 
-let getApi = (query)=>{
+let getApi = (url,query,variables=null)=>{
   return new Promise(( resolve ,reject) => {
-      fetch('http://localhost:3000/api/products', {
+      fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ let getApi = (query)=>{
         },
         body: JSON.stringify({
           query,
-          variables: null
+          variables
         })
       })
       .then(r => r.json())

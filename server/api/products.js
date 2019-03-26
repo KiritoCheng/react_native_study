@@ -62,20 +62,10 @@ var root = {
     }
 }
 
-module.exports = (app)=>{
+module.exports = app=>{
     app.use('/api/products',graphqlHTTP({
         schema:schema,
         rootValue:root,
         graphiql:true,
     }))
 }
-
-// mutation addProducts($Name:String!,$Price:String,$Cost:String,$Description:String,$Img:String){
-//   addProducts(Name:$Name,Price:$Price,Cost:$Cost,Description:$Description,Img:$Img){
-//     res
-//     errors
-//   }
-// }
-// {
-//   "Name":"test3","Price":"200","Cost":"180","Description":"Description"
-// }

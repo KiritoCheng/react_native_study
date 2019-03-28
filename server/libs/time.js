@@ -1,8 +1,11 @@
 // timeFormart YYYY-MM-DD HH:MM:SS
+let formart=(digits)=>{
+    return digits<10?`0${digits}`:`${digits}`;
+}
 let timeFormart=(myDate)=>{
-    let month=myDate.getMonth()+1;
-    month=month<10?`0${month}`:month;
-    return `${myDate.getFullYear()}-${month}-${myDate.getDate()} ${myDate.getHours()}:${myDate.getMinutes()}:${myDate.getSeconds()}`
+    let days = `${myDate.getFullYear()}-${formart(myDate.getMonth()+1)}-${formart(myDate.getDate())}`
+    let time = `${formart(myDate.getHours())}:${formart(myDate.getMinutes())}:${formart(myDate.getSeconds())}`
+    return  `${days} ${time}`
 }
 
 module.exports = {

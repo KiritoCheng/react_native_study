@@ -4,6 +4,7 @@ let query = function(sql){
         pool.query(sql,(err,rows)=>{
             if (err) {
                 reject(err.sqlMessage);
+                console.log('[sql] - :' + sql);
                 console.log('[query] - :' + err);
                 return;
             }

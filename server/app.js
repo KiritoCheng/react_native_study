@@ -29,8 +29,10 @@ app.use(cors())
 
 var test = require('./api/test.js')
 var products = require('./api/products.js')
+var users = require('./api/users.js')
 test(app)
 products(app)
+users(app)
 
 var server = app.listen(port, ()=>{
     var host = server.address().address

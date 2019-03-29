@@ -4,34 +4,42 @@ let query = require('../sql/query.js');
 let { timeFormart } = require('../libs/time.js')
 
 var schema = buildSchema(`
+    interface res{
+        res:Int
+        errors:String
+    },
     type productsTypes{
-        ID: Int
+        ID: ID
         Name:String
-        Price:Int
-        Cost:Int
+        Price:Float
+        Cost:Float
         Description:String
         Img:String
         Update_time:String
     },
-    type productsRes{
+    type productsRes implements res{
         res:Int,
         errors:String,
-        msg:String
         data:[productsTypes],
+    },
+    type mutationRes implements res {
+        res:Int
+        errors:String
+        msg:String
     },
     type Query {
         getProducts:productsRes
     },
     type Mutation {
-        addProduct(Name:String!,Price:Int,Cost:Int,Description:String,Img:String):productsRes
-        deleteProduct(ID:Int!):productsRes
-        changeProduct(ID:Int!,Name:String,Price:Int,Cost:Int,Description:String,Img:String):productsRes
+        addProduct(Name:String!,Price:Float,Cost:Float,Description:String,Img:String):mutationRes
+        deleteProduct(ID:Int!):mutationRes
+        modifyProduct(ID:Int!,Name:String,Price:Float,Cost:Float,Description:String,Img:String):mutationRes
     }
 `)
 
 var root = {
     getProducts:async ()=>{
-        return await query(`select ID, Name, Price, Cost, Description, Img, Update_time from product_list_tbl`)
+        return await query(`select ID, Name, Price, Cost, Description, Img, Update_time from product_list_tbl;`)
             .then(rtn=>{
                 return {
                     res:0,
@@ -46,13 +54,15 @@ var root = {
                 }
             })
     },
-    addProduct:async({Name,Price,Cost,Description,Img})=>{
-         return await query(`insert into product_list_tbl (Name,Price,Cost,Description,Img,Update_time) values 
-            (${Name},${Price||null},${Cost||null},${Description||null},${Img||null}'${timeFormart(new Date())}');`)
+    addProduct:async(productInfo)=>{
+        const {Name,Price,Cost,Description,Img}=productInfo;
+        let sql =`insert into product_list_tbl (Name,Price,Cost,Description,Img,Update_time) values (?,?,?,?,?,'${timeFormart(new Date())}');`
+        let param = [Name, Price||null, Cost||null, Description||null, Img||null];
+         return await query(sql,param)
             .then(rtn=>{
                 return {
                     res:0,
-                    msg:'“Y‰Á¬Œ÷'
+                    msg:'æ·»åŠ æˆåŠŸ'
                 }
             })
             .catch(err=>{
@@ -68,7 +78,7 @@ var root = {
             .then(rtn => {
                 return {
                     res:0,
-                    msg:'?œ¬Œ÷'
+                    msg:'åˆ é™¤æˆåŠŸ'
                 }
             })
             .catch(err=>{
@@ -78,14 +88,14 @@ var root = {
                 }
             }) 
     },
-    changeProduct:async({ID,Name,Price,Cost,Description,Img})=>{
+    modifyProduct:async({ID,Name,Price,Cost,Description,Img})=>{
         return await query(`update product_list_tbl 
             set Name='${Name||"Name"}',Price=${Price||"Price"},Cost=${Cost||"Cost"},Description='${Description||"Description"}',Update_time='${timeFormart(new Date())}'
             where ID=${ID};`)
             .then(rtn => {
                 return {
                     res:0,
-                    msg:'C‰ü¬Œ÷'
+                    msg:'ä¿®æ”¹æˆåŠŸ'
                 }
             })
             .catch(err=>{

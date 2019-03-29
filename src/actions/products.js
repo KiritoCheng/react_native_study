@@ -34,7 +34,7 @@ let httpGetProductList = () => {
 }
 
 
-const queryAdd = `mutation addProduct($Name:String!,$Price:Int,$Cost:Int,$Description:String,$Img:String){
+const queryAdd = `mutation addProduct($Name:String!,$Price:Float,$Cost:Float,$Description:String,$Img:String){
   addProduct(Name:$Name,Price:$Price,Cost:$Cost,Description:$Description,Img:$Img){
     res
     errors
@@ -76,18 +76,18 @@ let httpDeleteProduct = (ID) => {
     })
 }
 
-const queryChange = `mutation changeProduct($ID:Int!,$Name:String,$Price:Int,$Cost:Int,$Description:String,$Img:String){
-  changeProduct(ID:$ID,Name:$Name,Price:$Price,Cost:$Cost,Description:$Description,Img:$Img){
+const queryChange = `mutation modifyProduct($ID:Int!,$Name:String,$Price:Float,$Cost:Float,$Description:String,$Img:String){
+  modifyProduct(ID:$ID,Name:$Name,Price:$Price,Cost:$Cost,Description:$Description,Img:$Img){
     res
     errors
   }
 }`
-let  httpChangeProduct = ({ID,Name,Price,Cost,Description}) => {
+let  httpmodifyProduct = ({ID,Name,Price,Cost,Description}) => {
    return getApi(url, queryChange, {ID,Name,Price,Cost,Description})
      .then(res => {
-        const { changeProduct = {} } = res;
-        if (changeProduct.res != 0) {
-          console.log('Server Errors:', changeProduct.errors);
+        const { modifyProduct = {} } = res;
+        if (modifyProduct.res != 0) {
+          console.log('Server Errors:', modifyProduct.errors);
           return;
         }
     })
@@ -100,13 +100,14 @@ module.exports = {
   httpGetProductList,
   httpAddProduct,
   httpDeleteProduct,
-  httpChangeProduct
+  httpmodifyProduct
 }
 
-// httpAddProduct({Name:"5555",Price:"500",Description:"desc"}).then(()=>{
+// httpAddProduct({Name:"ss",Price:500}).then(()=>{
 //   httpGetProductList().then(res=>{console.log(res)})
 // })
-// httpChangeProduct({ID:17,Price:30,Cost:25,Description:"desc"}).then(()=>{
+// httpmodifyProduct({ID:20,Price:50,Cost:25,Description:"desc"}).then(()=>{
 //   httpGetProductList().then(res=>{console.log(res)})
 // })
-// httpDeleteProduct(10)
+// httpDeleteProduct(30)
+// httpGetProductList().then(res=>{console.log(res)})

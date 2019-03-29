@@ -46,12 +46,11 @@ let httpAddProduct = ({Name,Price,Cost,Description}) => {
     .then(res => {
         const { addProduct = {} } = res;
         if (addProduct.res != 0) {
-          console.log('Server Errors:', addProduct.errors);
-          return;
+          return 'Server Errors:', addProduct.errors;
         }
     })
     .catch(err => {
-      console.log(err)
+      return err
     })
 }
 
@@ -67,12 +66,11 @@ let httpDeleteProduct = (ID) => {
     .then(res => {
         const { deleteProduct = {} } = res;
         if (deleteProduct.res != 0) {
-          console.log('Server Errors:', deleteProduct.errors);
-          return;
+          return 'Server Errors:', deleteProduct.errors
         }
     })
     .catch(err => {
-      console.log(err)
+      return err
     })
 }
 
@@ -110,4 +108,4 @@ module.exports = {
 //   httpGetProductList().then(res=>{console.log(res)})
 // })
 // httpDeleteProduct(30)
-// httpGetProductList().then(res=>{console.log(res)})
+httpGetProductList().then(res=>{console.log(res)})

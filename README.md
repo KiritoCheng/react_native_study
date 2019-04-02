@@ -33,7 +33,7 @@ npm install -g react-native-cli
 **2. Install the Android SDK**  
 The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".  
 
-<div style="align: center">
+<div>
 <img src="https://facebook.github.io/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png"/>  
 </div>  
 The SDK Manager can also be found within the Android Studio "Preferences" dialog, under <text style="background-color:#eee">&nbsp;Appearance & Behavior → System Settings → Android SDK.&nbsp;</text>  

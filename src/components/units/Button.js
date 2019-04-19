@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  StyleSheet, View, Text,
+  StyleSheet, View, Text, TouchableHighlight
 } from 'react-native';
 
 const PrimaryStyles = StyleSheet.create({
@@ -16,8 +16,7 @@ const PrimaryStyles = StyleSheet.create({
     padding: 0,
     minWidth: 0,
     minHeight: 36,
-    // transition: 'background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-    elevation: 5,
+    elevation: 6,
     fontWeight: '500',
     lineHeight: 1.75,
     borderRadius: 56 / 2,
@@ -26,20 +25,21 @@ const PrimaryStyles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 26,
   },
 });
 
 
 type ButtonCicleProps = {
-  onTap?:"FunctionDeclaration"
+  onTap?: "FunctionDeclaration"
 };
-export const ButtonCicle = (props:ButtonCicleProps)=>{
-  return(
-      <View style={[PrimaryStyles.container, PrimaryStyles.button]}
-        onClick={() => { props.onTap && props.onTap(); }}>
+export const ButtonCicle = (props: ButtonCicleProps) => {
+  return (
+    <TouchableHighlight style={{ borderRadius: 56 / 2 }} onPress={() => { props.onTap && props.onTap(); }}>
+      <View style={[PrimaryStyles.container, PrimaryStyles.button]}>
         <Text style={PrimaryStyles.text}>+</Text>
       </View>
+    </TouchableHighlight>
   )
 }
 

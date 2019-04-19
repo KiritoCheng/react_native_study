@@ -119,5 +119,6 @@ adb tools
 use the eslint  
 &emsp;npm run lint  
 &ensp;  
+add local.properties sdk.dir =your android director
 
 

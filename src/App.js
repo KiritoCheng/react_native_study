@@ -8,29 +8,15 @@
  */
 
 import React, { Component } from 'react';
-import {Platform, Text, View } from 'react-native';
+import { Platform, Text, View } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { ButtonCicle } from './components/units/Button';
+import HomeScreen from './pages/HomeScreen';
 
 const instructions = Platform.select({
   ios: 'ios',
-  android:`android`
+  android: `android`
 });
 
-
-class HomeScreen extends React.Component {
-  handleNavigate() {
-    this.props.navigation.navigate('Details');
-  }
-
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <ButtonCicle onTap={() => this.handleNavigate()} />
-      </View>
-    );
-  }
-}
 
 class DetailsScreen extends React.Component {
   render() {
@@ -43,12 +29,20 @@ class DetailsScreen extends React.Component {
   }
 }
 
+// const HeaderTitle = ()=>{
+//   return(
+//     <View>
+//       <Text>我的账单</Text>
+//     </View>
+//   )
+// }
+
 const MainNavation = createStackNavigator(
   {
     Home: {
       screen: HomeScreen,
       navigationOptions: () => ({
-        title: '我的标题',
+        title: "我的账单",
         headerBackTitle: null,
       }),
     },

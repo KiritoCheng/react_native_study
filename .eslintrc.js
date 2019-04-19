@@ -7,7 +7,6 @@ module.exports = {
         "react-native/react-native": true
     },
     "parser": "babel-eslint",
-    "extends": "eslint:recommended",
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -35,5 +34,10 @@ module.exports = {
         // "react-native/no-inline-styles": 2,
         // "react-native/no-color-literals": 2,
         "react-native/no-raw-text": 2,
-    }
+    },
+    settings: {
+        react: {
+            version: require('./package.json').dependencies.react,
+        },
+    },
 };

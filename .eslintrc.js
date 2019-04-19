@@ -22,6 +22,7 @@ module.exports = {
     "plugins": [
         "react",
         "react-native",
+        "'graphql'",
     ],
     "extends": [
         "eslint:recommended",
@@ -34,10 +35,15 @@ module.exports = {
         // "react-native/no-inline-styles": 2,
         // "react-native/no-color-literals": 2,
         "react-native/no-raw-text": 2,
+<<<<<<< HEAD
     },
     settings: {
         react: {
             version: require('./package.json').dependencies.react,
         },
     },
+=======
+        "no-console": "off",
+    }
+>>>>>>> a9e2393b9f493aabd69be2ca14df999b44ca6f1a
 };

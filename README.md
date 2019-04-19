@@ -33,9 +33,10 @@ npm install -g react-native-cli
 **2. Install the Android SDK**  
 The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".  
 
-<div style="align: center">
-<img src="https://facebook.github.io/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png"/>  
-</div>  
+<div style="text-align: center;">
+    
+![Picture](https://facebook.github.io/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png)
+</div>
 The SDK Manager can also be found within the Android Studio "Preferences" dialog, under <text style="background-color:#eee">&nbsp;Appearance & Behavior → System Settings → Android SDK.&nbsp;</text>  
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the Android 9 (Pie) entry, then make sure the following items are checked:
@@ -110,7 +111,7 @@ cd android
 &emsp;
 
 ---
->**remake**  
+>**remake**
 &emsp;  
 adb tools   
 &emsp;adb devices  
@@ -119,6 +120,30 @@ adb tools
 use the eslint  
 &emsp;npm run lint  
 &ensp;  
-add local.properties sdk.dir =your android director
-
-
+use the nginx
+&emsp;/etc/init.d/nginx start
+&emsp;/etc/init.d/nginx stop
+&emsp;/etc/init.d/nginx reload
+&emsp;nginx config key 123456
+&emsp;nginx -t -c /etc/nginx/nginx.conf
+&emsp;systemctl status nginx.service
+use the pm2
+&emsp;pm2 start app.js 
+&emsp;pm2 list
+&emsp;pm2 stop all
+&emsp;pm2 stop 0(id)
+&emsp;pm2 restart all
+&emsp;pm2 delete all 
+[Public IP](http://47.102.121.206)
+[Private IP](http://172.19.187.237)
+&ensp;
+use the mysql  
+&emsp;mysqladmin -u root -p password(123456)
+&emsp;vim /etc/mysql/mysql.conf.d/mysqld.cnf
+&emsp;/etc/init.d/mysql restart 
+&emsp;service mysql restart
+&ensp;
+linxu commond  
+&emsp;netstat -ntpl |grep 3306
+&emsp;shutdown -r now
+&ensp;

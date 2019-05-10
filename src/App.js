@@ -11,23 +11,9 @@ import React, { Component } from 'react';
 import { Platform, Text, View } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import HomeScreen from './pages/HomeScreen';
-
-const instructions = Platform.select({
-  ios: 'ios',
-  android: `android`
-});
+import DetailsScreen from './pages/DetailsScreen';
 
 
-class DetailsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>DetailsScreen</Text>
-        <Text>{instructions}</Text>
-      </View>
-    );
-  }
-}
 
 // const HeaderTitle = ()=>{
 //   return(

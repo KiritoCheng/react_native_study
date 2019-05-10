@@ -22,6 +22,8 @@
     "react-navigation": "^3.3.2"
   },
   "devDependencies": {
+    "@types/react": "^16.8.17",
+    "@types/react-native": "^0.57.53",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^8.2.6",
     "babel-jest": "24.1.0",
@@ -31,7 +33,9 @@
     "eslint-plugin-react-native": "^3.6.0",
     "jest": "24.1.0",
     "metro-react-native-babel-preset": "0.52.0",
-    "react-test-renderer": "16.6.3"
+    "react-native-typescript-transformer": "^1.2.12",
+    "react-test-renderer": "16.6.3",
+    "typescript": "^3.4.5"
   },
   "jest": {
     "preset": "react-native"

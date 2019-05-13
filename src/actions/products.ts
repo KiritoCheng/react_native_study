@@ -1,4 +1,4 @@
-const getApi = require('../libs/api.js');
+import {getApi} from '../libs/api.js';
 const url = 'http://localhost:3000/api/products';
 
 const queryList = `{
@@ -94,7 +94,7 @@ let httpmodifyProduct = ({ ID, Name, Price, Cost, Description }) => {
     })
 }
 
-module.exports = {
+export {
   httpGetProductList,
   httpAddProduct,
   httpDeleteProduct,

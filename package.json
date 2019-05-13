@@ -6,7 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android": "react-native run-android",
     "lint": "eslint --ext .js ./src --fix",
-    "test": "jest"
+    "test": "jest",
+    "relay": "relay-compiler --src ./src --schema ./schema.graphql"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -14,12 +15,13 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
-    "graphql": "^14.1.1",
     "mysql": "^2.16.0",
     "react": "16.6.3",
+    "react-dom": "^16.8.6",
     "react-native": "0.58.6",
     "react-native-gesture-handler": "^1.1.0",
-    "react-navigation": "^3.3.2"
+    "react-navigation": "^3.3.2",
+    "react-relay": "^4.0.0"
   },
   "devDependencies": {
     "@types/react": "^16.8.17",
@@ -27,10 +29,12 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^8.2.6",
     "babel-jest": "24.1.0",
+    "babel-plugin-relay": "^4.0.0",
     "eslint": "^4.19.1",
     "eslint-plugin-graphql": "^3.0.3",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-native": "^3.6.0",
+    "graphql": "^14.3.0",
     "jest": "24.1.0",
     "metro-react-native-babel-preset": "0.52.0",
     "react-native-typescript-transformer": "^1.2.12",

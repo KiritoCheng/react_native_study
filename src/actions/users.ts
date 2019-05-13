@@ -1,4 +1,4 @@
-const getApi = require('../libs/api.js');
+import {getApi} from '../libs/api.js';
 const url = 'http://localhost:3000/api/users';
 
 
@@ -64,11 +64,10 @@ let httpModifyUser = ({ Uid, Username, Password, Headimg, Mail }) => {
         })
 }
 
-module.exports = {
+export {
     httpGetUserInfo,
     httpAddUse
 }
-
 // httpAddUse({Username:"test7",Password:"test7",Mail:"test7"}).then(res=>{console.log('res',res)})
 // httpGetUserInfo(22).then(res=>{console.log('res',res)})
 

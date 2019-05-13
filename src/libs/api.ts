@@ -1,6 +1,6 @@
 let fetch  = require("node-fetch");
 
-let getApi = (url,query,variables=null)=>{
+export const  getApi = (url,query,variables=null)=>{
   return new Promise(( resolve ,reject) => {
       fetch(url, {
         method: 'POST',
@@ -20,5 +20,3 @@ let getApi = (url,query,variables=null)=>{
       });
   })
 }
-
-module.exports = getApi;

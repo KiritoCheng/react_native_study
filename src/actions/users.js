@@ -72,6 +72,7 @@ module.exports = {
 // httpAddUse({Username:"test7",Password:"test7",Mail:"test7"}).then(res=>{console.log('res',res)})
 // httpGetUserInfo(22).then(res=>{console.log('res',res)})
 
-httpModifyUser({ Uid: 23, Username: "TEST23", Password: "TEST23" }).then(res => {
+httpModifyUser({ Uid: 23, Username: "TEST23", Password: "TEST23" }).then(r => {
+    console.log(r)
     httpGetUserInfo(23).then(res => { console.log('res', res) })
 })

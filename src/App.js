@@ -8,7 +8,7 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, Text, View } from 'react-native';
+// import {  Text, View } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import HomeScreen from './pages/HomeScreen';
 import DetailsScreen from './pages/DetailsScreen';

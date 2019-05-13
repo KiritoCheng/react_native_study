@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
 let query = require('../sql/query.js');

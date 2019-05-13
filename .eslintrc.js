@@ -22,7 +22,7 @@ module.exports = {
     "plugins": [
         "react",
         "react-native",
-        "'graphql'",
+        "graphql",
     ],
     "extends": [
         "eslint:recommended",

@@ -41,13 +41,13 @@ const queryAdd = `mutation addProduct($Name:String!,$Price:Float,$Cost:Float,$De
   }
 }`;
 
-let httpAddProduct = ({Name,Price,Cost,Description}) => {
-  return getApi(url, queryAdd, {Name,Price,Description})
+let httpAddProduct = ({ Name, Price, Cost, Description }) => {
+  return getApi(url, queryAdd, { Name, Price, Cost, Description })
     .then(res => {
-        const { addProduct = {} } = res;
-        if (addProduct.res != 0) {
-          return 'Server Errors:', addProduct.errors;
-        }
+      const { addProduct = {} } = res;
+      if (addProduct.res != 0) {
+        return 'Server Errors:', addProduct.errors;
+      }
     })
     .catch(err => {
       return err
@@ -62,12 +62,12 @@ const queryDelete = `mutation deleteProduct($ID:Int!){
 }`;
 
 let httpDeleteProduct = (ID) => {
-  return getApi(url, queryDelete, {ID})
+  return getApi(url, queryDelete, { ID })
     .then(res => {
-        const { deleteProduct = {} } = res;
-        if (deleteProduct.res != 0) {
-          return 'Server Errors:', deleteProduct.errors
-        }
+      const { deleteProduct = {} } = res;
+      if (deleteProduct.res != 0) {
+        return 'Server Errors:', deleteProduct.errors
+      }
     })
     .catch(err => {
       return err
@@ -80,14 +80,14 @@ const queryChange = `mutation modifyProduct($ID:Int!,$Name:String,$Price:Float,$
     errors
   }
 }`
-let  httpmodifyProduct = ({ID,Name,Price,Cost,Description}) => {
-   return getApi(url, queryChange, {ID,Name,Price,Cost,Description})
-     .then(res => {
-        const { modifyProduct = {} } = res;
-        if (modifyProduct.res != 0) {
-          console.log('Server Errors:', modifyProduct.errors);
-          return;
-        }
+let httpmodifyProduct = ({ ID, Name, Price, Cost, Description }) => {
+  return getApi(url, queryChange, { ID, Name, Price, Cost, Description })
+    .then(res => {
+      const { modifyProduct = {} } = res;
+      if (modifyProduct.res != 0) {
+        console.log('Server Errors:', modifyProduct.errors);
+        return;
+      }
     })
     .catch(err => {
       console.log(err)
@@ -108,4 +108,4 @@ module.exports = {
 //   httpGetProductList().then(res=>{console.log(res)})
 // })
 // httpDeleteProduct(30)
-httpGetProductList().then(res=>{console.log(res)})
+httpGetProductList().then(res => { console.log(res) })

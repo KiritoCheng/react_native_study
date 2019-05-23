@@ -124,6 +124,7 @@ android {
     }
     buildTypes {
         release {
+            aaptOptions.cruncherEnabled=false 
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             signingConfig signingConfigs.release

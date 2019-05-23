@@ -30,8 +30,8 @@ const PrimaryStyles = StyleSheet.create({
 });
 
 
-type ButtonCicleProps = {
-  onTap?: "FunctionDeclaration"
+interface ButtonCicleProps{
+  onTap?: ()=>void
 };
 export const ButtonCicle = (props: ButtonCicleProps) => {
   return (
@@ -42,17 +42,3 @@ export const ButtonCicle = (props: ButtonCicleProps) => {
     </TouchableHighlight>
   )
 }
-
-
-
-// export class ButtonCicle extends React.Component<ButtonCicleProps>{
-//   render(){
-//     return(
-//       <View
-//         style={[PrimaryStyles.container, PrimaryStyles.button]}
-//         onClick={() => { this.props.onTap(); }}>
-//         <Text style={PrimaryStyles.text}>+</Text>
-//       </View>
-//     )
-//   }
-// }

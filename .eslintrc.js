@@ -22,7 +22,11 @@ module.exports = {
     "plugins": [
         "react",
         "react-native",
+        "react-navigation",
+        "react-relay",
+        "typescript",
         "graphql",
+        "__generated__/ExampleFragment_artist.graphql"
     ],
     "extends": [
         "eslint:recommended",

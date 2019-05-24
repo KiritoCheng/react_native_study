@@ -22,11 +22,9 @@ module.exports = {
     "plugins": [
         "react",
         "react-native",
-        "react-navigation",
         "react-relay",
         "typescript",
         "graphql",
-        "__generated__/ExampleFragment_artist.graphql"
     ],
     "extends": [
         "eslint:recommended",
@@ -36,8 +34,6 @@ module.exports = {
         "react/prop-types": ["error", { "ignore": ["navigation"] }],
         "react-native/no-unused-styles": 2,
         "react-native/split-platform-components": 2,
-        // "react-native/no-inline-styles": 2,
-        // "react-native/no-color-literals": 2,
         "react-native/no-raw-text": 2,
         "no-console": "off",
     }

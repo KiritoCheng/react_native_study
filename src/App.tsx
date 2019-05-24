@@ -15,15 +15,6 @@ import DetailsScreen from './pages/DetailsScreen';
 import TodoItem from './containers/TodoItem';
 
 
-
-// const HeaderTitle = ()=>{
-//   return(
-//     <View>
-//       <Text>我的账单</Text>
-//     </View>
-//   )
-// }
-
 const MainNavation = createStackNavigator(
   {
     Home: {

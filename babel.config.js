@@ -1,8 +1,12 @@
 module.exports = {
-  presets: [
-    "module:metro-react-native-babel-preset"
-  ],
+  "passPerPreset": true,
   "plugins": [
-    "relay"
-  ]
+    ["relay", { "artifactDirectory": "./src/__generated__" }],
+    "transform-runtime"
+  ],
+  "presets": [
+    "module:metro-react-native-babel-preset",
+    "react",
+    "es2015",
+  ],
 }

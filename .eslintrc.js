@@ -22,7 +22,9 @@ module.exports = {
     "plugins": [
         "react",
         "react-native",
-        "react-relay",
+        "react-redux",
+        "redux",
+        "redux-thunk",
         "typescript",
         "graphql",
     ],

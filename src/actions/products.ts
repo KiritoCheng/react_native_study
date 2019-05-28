@@ -1,58 +1,57 @@
-// import {getApi} from '../libs/api.js';
-// const url = 'http://localhost:3000/api/products';
+import { getApi } from '../libs/api.js';
+import { ThunkDispatch } from "redux-thunk";
+import { getProducts } from '../schema/query';
+import { getProductsTypes, resTypes, addProductTypes } from '../schema/type';
+import { addProduct } from '../schema/mutation';
+const url = 'http://localhost:3000/api/products';
 
-// const queryList = `{
-//   getProducts {
-//     res
-//     errors
-//     data {
-//       ID
-//       Name
-//       Price
-//       Cost
-//       Description
-//       Img
-//       Update_time
-//     }
-//   }
-// }`
+export const GET_PRODUCTS = 'GET_PRODUCTS'
+export const productsList = (data: getProductsTypes[]) => {
+    return {
+        type: GET_PRODUCTS,
+        data
+    }
+}
+export const httpGetProductsList = () => {
+    return (dispatch: ThunkDispatch<any, any, any>, _getState: () => void) => {
+        getApi(url, `{
+            ${getProducts}
+          }`)
+            .then((r: { getProducts: resTypes }) => {
+                const { getProducts = {} } = r;
+                if (getProducts.res != 0) {
+                    console.log('Server Errors:', getProducts.errors);
+                    dispatch(productsList([]));
+                }
+                dispatch(productsList(getProducts.data))
+            })
+            .catch((err: any) => {
+                console.log(err)
+                dispatch(productsList([]))
+            })
 
-// let httpGetProductList = () => {
-//   return getApi(url, queryList)
-//     .then(res => {
-//       const { getProducts = {} } = res;
-//       if (getProducts.res != 0) {
-//         console.log('Server Errors:', getProducts.errors);
-//         return [];
-//       }
-//       return getProducts.data
-//     })
-//     .catch(err => {
-//       console.log(err)
-//       return []
-//     })
-// }
+    }
+}
 
 
-// const queryAdd = `mutation addProduct($Name:String!,$Price:Float,$Cost:Float,$Description:String,$Img:String){
-//   addProduct(Name:$Name,Price:$Price,Cost:$Cost,Description:$Description,Img:$Img){
-//     res
-//     errors
-//   }
-// }`;
 
-// let httpAddProduct = ({ Name, Price, Cost, Description }) => {
-//   return getApi(url, queryAdd, { Name, Price, Cost, Description })
-//     .then(res => {
-//       const { addProduct = {} } = res;
-//       if (addProduct.res != 0) {
-//         return 'Server Errors:', addProduct.errors;
-//       }
-//     })
-//     .catch(err => {
-//       return err
-//     })
-// }
+export const httpAddProduct = (argus: addProductTypes) => {
+    const { Name, Price, Cost, Description } = argus;
+    return (dispatch: ThunkDispatch<any, any, any>, getState: () => void) => {
+        getApi(url, addProduct, { Name, Price, Cost, Description })
+            .then((r: { addProduct: resTypes }) => {
+                const { addProduct = {} } = r;
+                if (addProduct.res != 0) {
+                    console.log('Server Errors:', addProduct.errors);
+                    // dispatch(getState().productsList.push())
+                }
+            })
+            .catch((err: any) => {
+                console.log(err)
+            })
+    }
+}
+
 
 // const queryDelete = `mutation deleteProduct($ID:Int!){
 //   deleteProduct(ID:$ID){
@@ -62,16 +61,16 @@
 // }`;
 
 // let httpDeleteProduct = (ID) => {
-//   return getApi(url, queryDelete, { ID })
-//     .then(res => {
-//       const { deleteProduct = {} } = res;
-//       if (deleteProduct.res != 0) {
-//         return 'Server Errors:', deleteProduct.errors
-//       }
-//     })
-//     .catch(err => {
-//       return err
-//     })
+//     return getApi(url, queryDelete, { ID })
+//         .then(r => {
+//             const { deleteProduct = {} } = r;
+//             if (deleteProduct.res != 0) {
+//                 return 'Server Errors:', deleteProduct.errors
+//             }
+//         })
+//         .catch(err => {
+//             return err
+//         })
 // }
 
 // const queryChange = `mutation modifyProduct($ID:Int!,$Name:String,$Price:Float,$Cost:Float,$Description:String,$Img:String){
@@ -81,31 +80,31 @@
 //   }
 // }`
 // let httpmodifyProduct = ({ ID, Name, Price, Cost, Description }) => {
-//   return getApi(url, queryChange, { ID, Name, Price, Cost, Description })
-//     .then(res => {
-//       const { modifyProduct = {} } = res;
-//       if (modifyProduct.res != 0) {
-//         console.log('Server Errors:', modifyProduct.errors);
-//         return;
-//       }
-//     })
-//     .catch(err => {
-//       console.log(err)
-//     })
+//     return getApi(url, queryChange, { ID, Name, Price, Cost, Description })
+//         .then(r => {
+//             const { modifyProduct = {} } = r;
+//             if (modifyProduct.res != 0) {
+//                 console.log('Server Errors:', modifyProduct.errors);
+//                 return;
+//             }
+//         })
+//         .catch(err => {
+//             console.log(err)
+//         })
 // }
 
 // export {
-//   httpGetProductList,
-//   httpAddProduct,
-//   httpDeleteProduct,
-//   httpmodifyProduct
+//     httpGetProductList,
+//     // httpAddProduct,
+//     httpDeleteProduct,
+//     httpmodifyProduct
 // }
 
-// // httpAddProduct({Name:"ss",Price:500}).then(()=>{
-// //   httpGetProductList().then(res=>{console.log(res)})
-// // })
-// // httpmodifyProduct({ID:20,Price:50,Cost:25,Description:"desc"}).then(()=>{
-// //   httpGetProductList().then(res=>{console.log(res)})
-// // })
-// // httpDeleteProduct(30)
+// httpAddProduct({Name:"ss",Price:500}).then(()=>{
+//   httpGetProductList().then(res=>{console.log(res)})
+// })
+// httpmodifyProduct({ID:20,Price:50,Cost:25,Description:"desc"}).then(()=>{
+//   httpGetProductList().then(res=>{console.log(res)})
+// })
+// httpDeleteProduct(30)
 // httpGetProductList().then(res => { console.log(res) })

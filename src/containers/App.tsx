@@ -10,9 +10,8 @@
 import React from 'react'
 import { Component } from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import HomeScreen from './pages/HomeScreen';
-import DetailsScreen from './pages/DetailsScreen';
-import TodoItem from './containers/TodoItem';
+import HomeScreen from '../containers/HomeScreen';
+// import DetailsScreen from '../containers/DetailsScreen';
 
 
 const MainNavation = createStackNavigator(
@@ -24,7 +23,7 @@ const MainNavation = createStackNavigator(
         headerBackTitle: null,
       }),
     },
-    Details: DetailsScreen,
+    // Details: DetailsScreen,
   },
   {
     initialRouteName: 'Home',
@@ -34,7 +33,7 @@ const AppContainer = createAppContainer(MainNavation);
 
 export default class App extends Component {
   render() {
-    return <TodoItem />
-    // return <AppContainer />;
+    return <AppContainer />;
   }
 }
+

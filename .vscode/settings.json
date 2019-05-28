@@ -2,6 +2,7 @@
     "eslint.alwaysShowStatus": true,
     "eslint.autoFixOnSave": true,
     "eslint.options": {
-        "configFile": ".eslintrc.js"
-    }
+        "configFile": ".eslintrc.js",
+    },
+    
 }

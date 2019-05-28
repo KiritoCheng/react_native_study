@@ -1,16 +1,21 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { ButtonCicle } from "../components/units/Button"
+import { ButtonCicle } from "./units/Button"
 import { NavigationScreenProps } from 'react-navigation';
+import { getProductsTypes } from '../schema/type';
 
-interface HomeScreenProps extends NavigationScreenProps { }
+export interface productsDataProps extends NavigationScreenProps {
+    list: getProductsTypes[]
+}
+export interface productsEventProps { }
 
-export default class HomeScreen extends React.Component<HomeScreenProps> {
+export class HomeScreen extends React.Component<productsDataProps> {
     handleNavigate() {
         this.props.navigation.navigate('Details');
     }
 
     render() {
+        console.log(this.props.list)
         return (
             <>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

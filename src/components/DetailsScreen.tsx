@@ -8,7 +8,7 @@ const instructions = Platform.select({
 });
 
 
-export default class DetailsScreen extends React.Component {
+export class DetailsScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

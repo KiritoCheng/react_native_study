@@ -147,3 +147,4 @@ linxu commond
 &emsp;netstat -ntpl |grep 3306
 &emsp;shutdown -r now
 &ensp;
+https://developer.android.com/studio/run/emulator-commandline

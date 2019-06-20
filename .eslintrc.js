@@ -6,7 +6,7 @@ module.exports = {
         "commonjs": true,
         "react-native/react-native": true
     },
-    "parser": "babel-eslint",
+    "parser": "typescript-eslint-parser",
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -22,9 +22,6 @@ module.exports = {
     "plugins": [
         "react",
         "react-native",
-        "react-redux",
-        "redux",
-        "redux-thunk",
         "typescript",
         "graphql",
     ],
@@ -38,5 +35,6 @@ module.exports = {
         "react-native/split-platform-components": 2,
         "react-native/no-raw-text": 2,
         "no-console": "off",
+        "no-unused-vars": ["off"],
     }
 };

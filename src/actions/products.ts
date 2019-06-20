@@ -1,4 +1,4 @@
-import { getApi } from '../libs/api.js';
+import { getApi } from '../libs/api';
 import { ThunkDispatch } from "redux-thunk";
 import { getProducts } from '../schema/query';
 import { getProductsTypes, resTypes, addProductTypes } from '../schema/type';

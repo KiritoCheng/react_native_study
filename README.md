@@ -134,7 +134,7 @@ use the pm2
 &emsp;pm2 stop 0(id)
 &emsp;pm2 restart all
 &emsp;pm2 delete all 
-[Public IP](http://47.102.121.206)
+[Public IP](http://47.102.121.206)ssh root@47.102.121.206
 [Private IP](http://172.19.187.237)
 &ensp;
 use the mysql  
@@ -148,3 +148,4 @@ linxu commond
 &emsp;shutdown -r now
 &ensp;
 https://developer.android.com/studio/run/emulator-commandline
+react-native eject

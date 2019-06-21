@@ -4,20 +4,36 @@ import { ButtonCicle } from "./units/Button"
 import { NavigationScreenProps } from 'react-navigation';
 import { getProductsTypes } from '../schema/type';
 
-export interface productsDataProps extends NavigationScreenProps {
+export interface productsDataProps {
     list: getProductsTypes[]
 }
-export interface productsEventProps { }
+export interface productsEventProps {
+    componentDidMount: () => void;
+}
+interface productsProps extends productsDataProps, productsEventProps, NavigationScreenProps { }
 
-export class HomeScreen extends React.Component<productsDataProps> {
+export class HomeScreen extends React.Component<productsProps> {
     handleNavigate() {
         this.props.navigation.navigate('Details');
     }
 
+    componentDidMount() {
+        this.props.componentDidMount();
+    }
+
     render() {
-        console.log(this.props.list)
+        console.log('list', this.props.list)
         return (
             <>
+                {
+                    this.props.list && this.props.list.map(k => {
+                        return (
+                            <>
+                                <Text> {k.Name}</Text>
+                            </>
+                        )
+                    })
+                }
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                     <Text>点击右下角按钮添加新的账单</Text>
                 </View>

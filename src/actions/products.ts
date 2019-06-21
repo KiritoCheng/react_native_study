@@ -20,7 +20,6 @@ export const httpGetProductsList = () => {
             .then((r: { getProducts: resTypes }) => {
                 const { getProducts = {} } = r;
                 if (getProducts.res != 0) {
-                    console.log('Server Errors:', getProducts.errors);
                     dispatch(productsList([]));
                 }
                 dispatch(productsList(getProducts.data))
@@ -32,7 +31,6 @@ export const httpGetProductsList = () => {
 
     }
 }
-
 
 
 export const httpAddProduct = (argus: addProductTypes) => {

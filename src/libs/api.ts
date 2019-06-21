@@ -1,21 +1,19 @@
-let fetch = require("node-fetch");
-
 export const getApi: any = (url: string, query: string, variables: any = null) => {
-  console.log(url)
   return new Promise((resolve: any, reject: any) => {
-    fetch(url, {
+    console.log(url);
+    return fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Accept': 'application/json',
+        'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
-        query,
-        variables
+        "query": `${query}`,
+        "variables": `${variables}`
       })
-    })
-      .then((r: any) => r.json())
+    }).then((r: any) => r.json())
       .then((res: { errors: any, data: any }) => {
+        alert('请求su');
         if (res.errors) { reject(res.errors); return }
         resolve(res.data)
       })

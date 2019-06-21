@@ -22,11 +22,11 @@ export class HomeScreen extends React.Component<productsProps> {
     }
 
     render() {
-        console.log('list', this.props.list)
+        const { list = [] } = this.props;
         return (
             <>
                 {
-                    this.props.list && this.props.list.map(k => {
+                    list.map(k => {
                         return (
                             <>
                                 <Text> {k.Name}</Text>

@@ -2,14 +2,14 @@
 import * as React from "react";
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import ReduxThunk from 'redux-thunk';
+import thunk from 'redux-thunk';
+import 'whatwg-fetch';
 
 import App from './containers/App';
 import reducer from './reducers';
-
 const store = createStore(
-    reducer,{},
-    applyMiddleware(ReduxThunk)
+    reducer,
+    applyMiddleware(thunk)
 );
 
 export default () => {

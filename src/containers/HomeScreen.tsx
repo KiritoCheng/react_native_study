@@ -6,7 +6,6 @@ import { reducerTypes } from '../reducers/index';
 
 const maToState: any = (state: reducerTypes) => {
     const { productsList = [] } = state
-    console.log(state.productsList)
     return {
         list: productsList
     }

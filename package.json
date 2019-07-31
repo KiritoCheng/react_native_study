@@ -25,7 +25,8 @@
     "react-navigation": "^3.11.0",
     "react-redux": "^7.1.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@types/react": "^16.8.21",

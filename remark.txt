@@ -1,0 +1,40 @@
+
+---
+>**remake**
+&emsp;  
+adb tools   
+&emsp;adb devices  
+&emsp;adb -s <device name> reverse tcp:8081 tcp:8081  
+&ensp;  
+use the eslint  
+&emsp;npm run lint  
+&ensp;  
+use the nginx
+&emsp;/etc/init.d/nginx start
+&emsp;/etc/init.d/nginx stop
+&emsp;/etc/init.d/nginx reload
+&emsp;nginx config key 123456
+&emsp;nginx -t -c /etc/nginx/nginx.conf
+&emsp;systemctl status nginx.service
+use the pm2
+&emsp;pm2 start app.js 
+&emsp;pm2 list
+&emsp;pm2 stop all
+&emsp;pm2 stop 0(id)
+&emsp;pm2 restart all
+&emsp;pm2 delete all 
+[Public IP](http://47.102.121.206)ssh root@47.102.121.206
+[Private IP](http://172.19.187.237)
+&ensp;
+use the mysql  
+&emsp;mysqladmin -u root -p password(123456)
+&emsp;vim /etc/mysql/mysql.conf.d/mysqld.cnf
+&emsp;/etc/init.d/mysql restart 
+&emsp;service mysql restart
+&ensp;
+linxu commond  
+&emsp;netstat -ntpl |grep 3306
+&emsp;shutdown -r now
+&ensp;
+https://developer.android.com/studio/run/emulator-commandline
+react-native eject

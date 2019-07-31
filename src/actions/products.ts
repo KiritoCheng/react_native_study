@@ -1,8 +1,8 @@
 import { getApi } from '../libs/api';
 import { ThunkDispatch } from "redux-thunk";
 import { getProducts } from '../schema/query';
-import { getProductsTypes, resTypes, addProductTypes } from '../schema/type';
 import { addProduct } from '../schema/mutation';
+import { getProductsTypes, resTypes, addProductTypes } from '../schema/type';
 const url = 'http://47.102.121.206:3000/api/products';
 
 export const GET_PRODUCTS = 'GET_PRODUCTS'
@@ -15,15 +15,14 @@ export const productsList = (data: getProductsTypes[]) => {
 export const httpGetProductsList = () => {
 
     return (dispatch: ThunkDispatch<any, any, any>, _getState: () => void) => {
-        getApi(url, `{${getProducts}}`)
-            .then((r: { getProducts: resTypes }) => {
-                console.log('getProducts',r)
-                const { getProducts = {} } = r;
-                if (getProducts.res != 0) {
-                    return  dispatch(productsList([]));
-                }
-                return dispatch(productsList(getProducts.data))
-            })
+        return getApi(url, `{${getProducts}}`).then((r: { getProducts: resTypes }) => {
+            console.log('getProducts', r)
+            const { getProducts = {} } = r;
+            if (getProducts.res != 0) {
+                dispatch(productsList([]));
+            }
+            dispatch(productsList(getProducts.data))
+        })
             .catch((err: any) => {
                 console.log(err)
                 dispatch(productsList([]))

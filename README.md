@@ -2,7 +2,8 @@
 ## 1.Install choco  
 &emsp;powershell run  
 ```
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; 
+iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 ;&emsp;
 
@@ -61,7 +62,11 @@ C:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk\tools
 ## 5.Package Publish
 #### Generating a signing key  
 ```  
-$ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000  
+$ keytool -genkey -v -keystore my-release-key.keystore 
+                     -alias my-key-alias 
+                     -keyalg RSA 
+                     -keysize 2048 
+                     -validity 10000  
 ```  
   
 #### Setting up gradle variables  

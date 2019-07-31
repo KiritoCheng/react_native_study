@@ -3,9 +3,9 @@
 &emsp;powershell run  
 ```
 Set-ExecutionPolicy Bypass -Scope Process -Force; 
-iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'));
 ```
-;&emsp;
+&emsp;
 
 ## 2.Installing dependencies   
 ### Node, Python2, JDK   

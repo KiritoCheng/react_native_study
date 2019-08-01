@@ -2,9 +2,10 @@
 ## 1.Install choco  
 &emsp;powershell run  
 ```
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; 
+iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'));
 ```
-;&emsp;
+&emsp;
 
 ## 2.Installing dependencies   
 ### Node, Python2, JDK   
@@ -33,10 +34,9 @@ npm install -g react-native-cli
 **2. Install the Android SDK**  
 The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".  
 
-<div style="text-align:'center';">
-    
-![Picture](https://facebook.github.io/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png)
-</div>
+<p align="center">
+  <img src="https://facebook.github.io/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png"/>
+</p>
 The SDK Manager can also be found within the Android Studio "Preferences" dialog, under <text style="background-color:#eee">&nbsp;Appearance & Behavior → System Settings → Android SDK.&nbsp;</text>  
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the Android 9 (Pie) entry, then make sure the following items are checked:
@@ -62,7 +62,11 @@ C:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk\tools
 ## 5.Package Publish
 #### Generating a signing key  
 ```  
-$ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000  
+$ keytool -genkey -v -keystore my-release-key.keystore 
+                     -alias my-key-alias 
+                     -keyalg RSA 
+                     -keysize 2048 
+                     -validity 10000  
 ```  
   
 #### Setting up gradle variables  

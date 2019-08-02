@@ -1,6 +1,6 @@
 export const getApi: any = (url: string, query: string, variables: any = null) => {
   return new Promise((resolve: any, reject: any) => {
-    console.log(url);
+    console.log('url', url);
 
     return fetch(url, {
       method: 'POST',
@@ -13,16 +13,14 @@ export const getApi: any = (url: string, query: string, variables: any = null) =
         "variables": variables
       })
     })
-      .then((r) => {
-        console.log('123');
-        return r.json()
-      })
+      .then(r => r.json())
       .then((res: { errors: any, data: any }) => {
         if (res.errors) { reject(res.errors); return }
+        console.log(res.data)
         resolve(res.data)
       })
       .catch((e: any) => {
-        console.log(e);
+        console.log('error', e);
         alert('网络请求错误');
       });
   })

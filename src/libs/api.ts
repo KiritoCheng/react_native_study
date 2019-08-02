@@ -19,9 +19,8 @@ export const getApi: any = (url: string, query: string, variables: any = null) =
         console.log(res.data)
         resolve(res.data)
       })
-      .catch((e: any) => {
-        console.log('error', e);
-        alert('网络请求错误');
+      .catch(error => {
+        reject(error);
       });
   })
 }

@@ -3,7 +3,7 @@ import { ThunkDispatch } from "redux-thunk";
 import { getProducts } from '../schema/query';
 import { addProduct } from '../schema/mutation';
 import { getProductsTypes, resTypes, addProductTypes } from '../schema/type';
-const url = 'http://47.102.121.206:3000/api/products';
+const url = 'https://47.102.121.206:3000/api/products';
 
 export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const productsList = (data: getProductsTypes[]) => {
@@ -15,7 +15,8 @@ export const productsList = (data: getProductsTypes[]) => {
 export const httpGetProductsList = () => {
 
     return (dispatch: ThunkDispatch<any, any, any>, _getState: () => void) => {
-        return getApi(url, `{${getProducts}}`).then((r: { getProducts: resTypes }) => {
+        return getApi(url, `{${getProducts}}`)
+        .then((r: { getProducts: resTypes }) => {
             console.log('getProducts', r)
             const { getProducts = {} } = r;
             if (getProducts.res != 0) {
@@ -24,7 +25,7 @@ export const httpGetProductsList = () => {
             dispatch(productsList(getProducts.data))
         })
             .catch((err: any) => {
-                console.log(err)
+                console.log('Error:', err)
                 dispatch(productsList([]))
             })
     }

@@ -1,14 +1,30 @@
-//mysql.js
-var mysql = require('mysql'); //调用MySQL模块
-//创建一个connection
+// mysql.js
+var mysql = require('mysql');
 
- const pool = mysql.createPool({
-    host: '47.102.121.206', //主机
-    user: 'root',     //数据库用户名
-    password: '123456',     //数据库密码
-    port: '3306',       
-    database: 'commodity', //数据库名称
-    charset: 'UTF8_GENERAL_CI' //数据库编码
+// add connection
+const pool = mysql.createPool({
+    host: '47.102.121.206',
+    user: 'root',
+    password: '123456',
+    port: '3306',
+    database: 'commodity',
+    charset: 'UTF8_GENERAL_CI',
 });
 
-module.exports ={pool}
+let connect = function () {
+    return new Promise((resolve, reject) => {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                reject(err);
+                console.log('[connect_err] - :' + err);
+                return;
+            }
+
+            console.log('connected!')
+            resolve(connection);
+        });
+    });
+}
+
+
+module.exports = { connect }

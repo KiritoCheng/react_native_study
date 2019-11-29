@@ -3,7 +3,7 @@ import { ThunkDispatch } from "redux-thunk";
 import { getProducts } from '../schema/query';
 import { addProduct } from '../schema/mutation';
 import { getProductsTypes, resTypes, addProductTypes } from '../schema/type';
-const url = 'http://10.0.2.2:3000/api/products';
+const url = 'http://47.102.121.206:3000/api/products';
 
 export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const productsList = (data: getProductsTypes[]) => {
